@@ -119,7 +119,7 @@ export class UserController extends AuthBaseController{
 
 
 ## Installation
-Clone (or download) and then run
+Clone (or download), copy .env_example to .env and .env.test, run:
 
 ```bash
 $ npm install
