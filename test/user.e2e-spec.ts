@@ -45,8 +45,8 @@ describe('UserController (e2e)', () => {
   });
 
   afterAll(async () => {
-    await roleRepository.query(`DELETE FROM roles WHERE id < 0`);
     await userRepository.query(`DELETE FROM users WHERE email LIKE '%test@test.test'`);
+    await roleRepository.query(`DELETE FROM roles WHERE id < 0`);
     await app.close();
   });
 

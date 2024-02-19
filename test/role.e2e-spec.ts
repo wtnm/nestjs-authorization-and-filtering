@@ -48,9 +48,9 @@ describe('RoleController (e2e)', () => {
   });
 
   afterAll(async () => {
+    await userRepository.query(`DELETE FROM users WHERE role < 0`);
     await roleRepository.query(`DELETE FROM roles WHERE name IN ('${name}','${newName}')`);
     await roleRepository.query(`DELETE FROM roles WHERE id < 0`);
-    await userRepository.query(`DELETE FROM users WHERE role < 0`);
     await app.close();
   });
 

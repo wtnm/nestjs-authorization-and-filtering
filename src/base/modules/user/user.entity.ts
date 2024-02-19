@@ -1,4 +1,4 @@
-import { BeforeInsert, BeforeUpdate, Column, Entity } from 'typeorm';
+import { BeforeInsert, BeforeUpdate, Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { IsBoolean, IsEmail, IsNumber, IsOptional, IsString } from 'class-validator';
 import { Role } from '../role/role.entity';
 import { Exclude } from 'class-transformer';
@@ -17,6 +17,8 @@ export class User extends Role {
   @IsOptional()
   @IsNumber()
   @Column({ nullable: false, default: 0 })
+  @JoinColumn({ name: 'role' })
+  @ManyToOne(() => Role)
   role?: number;
 
   @Exclude()

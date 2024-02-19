@@ -73,8 +73,8 @@ describe('Auth restrictions (e2e)', () => {
   });
 
   afterAll(async () => {
-    await roleRepository.query(`DELETE FROM roles WHERE id < 0`);
     await userRepository.query(`DELETE FROM users WHERE role < 0`);
+    await roleRepository.query(`DELETE FROM roles WHERE id < 0`);
     await app.close();
   });
 
